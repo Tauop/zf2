@@ -527,4 +527,10 @@ class HostnameTest extends \PHPUnit_Framework_TestCase
         $validator = $this->validator;
         $this->assertAttributeEquals($validator->getOption('messageVariables'), 'messageVariables', $validator);
     }
+
+    public function testNumericHostname()
+    {
+        $this->assertTrue($this->validator->isValid('123456789012345678901234567890123456789012345678901234567890123.de'));
+        $this->assertTrue($this->validator->isValid('12345.de'));
+    }
 }
